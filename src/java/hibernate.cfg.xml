@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.datasource">java:comp/env/jdbc/DBHotel</property>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property>
+    <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+    <mapping resource="hotel/hibernate/conf/Planta.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Habitacion.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Reserva.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Ocupacion.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Tipo.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Precio.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Regimen.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Edad.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Pax.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Cliente.hbm.xml"/>
+    <mapping resource="hotel/hibernate/conf/Temporada.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

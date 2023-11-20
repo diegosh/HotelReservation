@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-dic-2016 0:37:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="DBHotel" name="hotel.pojo.Precio" optimistic-lock="version" table="precio">
+    <id name="idPrecio" type="java.lang.Integer">
+      <column name="IdPrecio"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="hotel.pojo.Temporada" fetch="select" name="temporada">
+      <column name="IdTemporada" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="hotel.pojo.Tipo" fetch="select" name="tipo">
+      <column name="IdTipo" not-null="true"/>
+    </many-to-one>
+    <property name="precio" type="double">
+      <column name="precio" not-null="true" precision="22" scale="0"/>
+    </property>
+    <property name="idRegimen" type="string">
+      <column length="2" name="IdRegimen"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,146 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default">
+      <global-results>
+        <result name="error">error.jsp</result>
+        <result name="errorBBDD">errorBD.jsp</result>
+      </global-results>
+      <global-exception-mappings>
+        <exception-mapping exception="Exception" result="error"/>
+        <exception-mapping exception="HibernateException" result="errorBBDD"/>
+      </global-exception-mappings>
+      <action name="index" class="InicioActionBean">
+        <result name="success">reservar.jsp</result>
+      </action>
+      <action name="login" class="LoginActionBean">
+        <result name="input">login.jsp</result>
+        <result name="success" type="chain">index</result>
+      </action>
+      <action name="confirmar" class="ConfirmarActionBean">
+        <result name="success">confirmar.jsp</result>
+      </action>
+      <action name="formaliza" class="FormalizaActionBean">
+        <result name="success">reserva_correcta.jsp</result>
+        <result name="input">cliente_error.jsp</result>
+      </action>   
+      <action name="registroCliente" class="ClienteActionBean">
+        <result name="success">cliente_correcto.jsp</result>
+        <result name="error">cliente_error.jsp</result>
+        <result name="input">registro_cliente.jsp</result>
+      </action>
+      <action name="disponibilidad" class="DisponibilidadActionBean">
+        <result name="success">disponibilidad.jsp</result>
+      </action>
+      <action name="misreservas" class="MisReservasActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">misreservas.jsp</result>
+      </action>
+      <action name="reservas" class="ReservasActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">gestion_reservas.jsp</result>
+      </action>
+      <action name="supreserva" class="SupReservaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">reservas</result>
+      </action>
+      <action name="gestion_habitacion" class="HabitacionActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">gestion_habitaciones.jsp</result>
+      </action>
+      <action name="modhabitacion" class="ModHabitacionActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">modifica_habitacion.jsp</result>
+      </action>
+      <action name="suphabitacion" class="SupHabitacionActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_habitacion</result>
+      </action>
+      <action name="registroHabitacion" class="RegHabitacionActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_habitacion</result>
+      </action>
+      <action name="gestion_planta" class="PlantaActionBean">
+        <result name="error">error_acceso_jsp</result>
+        <result name="success">gestion_plantas.jsp</result>
+      </action>  
+      <action name="modplanta" class="ModPlantaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">modifica_planta.jsp</result>
+      </action> 
+      <action name="supplanta" class="SupPlantaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_planta</result>
+      </action>
+      <action name="registroPlanta" class="RegPlantaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_planta</result>
+      </action>
+      <action name="gestion_tipo" class="TipoActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">gestion_tipos.jsp</result>
+      </action>
+      <action name="modtipo" class="ModTipoActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">modifica_tipo.jsp</result>
+      </action>
+      <action name="registroTipo" class="RegTipoActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_tipo</result>
+      </action>     
+      <action name="suptipo" class="SupTipoActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_tipo</result>
+      </action>      
+      <action name="gestion_precio" class="PreciosActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">gestion_precios.jsp</result>
+      </action>
+      <action name="modprecio" class="ModPrecioActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">modifica_precio.jsp</result>
+      </action>  
+      <action name="supprecio" class="SupPrecioActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_precio</result>
+      </action>
+       <action name="registroPrecio" class="RegPrecioActionBean">
+         <result name="error">error_acceso.jsp</result>
+         <result name="success" type="chain">gestion_precio</result>
+      </action>
+      <action name="gestion_temporada" class="TemporadasActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">gestion_temporadas.jsp</result>
+      </action>
+      <action name="modtemporada" class="ModTemporadaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">modifica_temporada.jsp</result>
+      </action>
+      <action name="suptemporada" class="SupTemporadaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_temporada</result>
+      </action>
+      <action name="registroTemporada" class="RegTemporadaActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_temporada</result>
+      </action>
+      <action name="gestion_regimen" class="RegimenesActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">gestion_regimenes.jsp</result>
+      </action>
+      <action name="modregimen" class="ModRegimenActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success">modifica_regimen.jsp</result>
+      </action>
+      <action name="supregimen" class="SupRegimenActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_regimen</result>
+      </action>
+      <action name="registroRegimen" class="RegRegimenActionBean">
+        <result name="error">error_acceso.jsp</result>
+        <result name="success" type="chain">gestion_regimen</result>
+      </action>
+    </package>
+</struts>

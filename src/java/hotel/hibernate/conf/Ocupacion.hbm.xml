@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-dic-2016 0:37:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="DBHotel" name="hotel.pojo.Ocupacion" optimistic-lock="version" table="ocupacion">
+    <composite-id class="hotel.pojo.OcupacionId" name="id">
+      <key-property name="idHabitacion" type="int">
+        <column name="IdHabitacion"/>
+      </key-property>
+      <key-property name="fecha" type="date">
+        <column length="10" name="fecha"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="hotel.pojo.Habitacion" fetch="select" insert="false" name="habitacion" update="false">
+      <column name="IdHabitacion" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-dic-2016 0:37:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="DBHotel" name="hotel.pojo.Tipo" optimistic-lock="version" table="tipo">
+    <id name="idTipo" type="java.lang.Integer">
+      <column name="IdTipo"/>
+      <generator class="identity"/>
+    </id>
+    <property name="tipo" type="string">
+      <column length="45" name="tipo" not-null="true" unique="true"/>
+    </property>
+    <property name="imagen" type="string">
+      <column length="60" name="imagen"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="400" name="descripcion"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="precios" table="precio">
+      <key>
+        <column name="IdTipo" not-null="true"/>
+      </key>
+      <one-to-many class="hotel.pojo.Precio"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="habitacions" table="habitacion">
+      <key>
+        <column name="IdTipo" not-null="true"/>
+      </key>
+      <one-to-many class="hotel.pojo.Habitacion"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="reservas" table="reserva">
+      <key>
+        <column name="IdTipo"/>
+      </key>
+      <one-to-many class="hotel.pojo.Reserva"/>
+    </set>
+  </class>
+</hibernate-mapping>

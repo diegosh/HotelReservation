@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02-dic-2016 0:37:52 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="DBHotel" name="hotel.pojo.Regimen" optimistic-lock="version" table="regimen">
+    <id name="idRegimen" type="string">
+      <column length="2" name="IdRegimen"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="regimen" type="string">
+      <column length="60" name="regimen" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="reservas" table="reserva">
+      <key>
+        <column length="2" name="IdRegimen" not-null="true"/>
+      </key>
+      <one-to-many class="hotel.pojo.Reserva"/>
+    </set>
+  </class>
+</hibernate-mapping>
